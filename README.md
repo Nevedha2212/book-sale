@@ -89,7 +89,7 @@ sales_on_date   2018-09-02      92.88
 2. Application will throw exception if CSV file is not of right format
 
 ### Time taken
-Total time taken to complete the project took 4 hours.
+Total time taken to complete the project took 5 hours.
  - 2 hours to fetch CSV file
  - 1 hour to compute the logic
- - 1 hour to test and document
+ - 2 hour to test and document
