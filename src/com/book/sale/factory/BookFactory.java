@@ -7,20 +7,29 @@ import java.util.*;
 
 public class BookFactory {
 
-    // Converting list of sale to Hashmap and counting operation is performed. After counting, sort is performed and top n selling books are picked
+    // Converting list of sale to Hashmap, create price map with book list and counting operation is performed(w.r.t price). After counting, sort is performed and top n selling books are picked
 
-    public static String computeTopSellingBooks(List<Sale> sales, int n) {
-        HashMap<String, Integer> topSellingBooks = new HashMap<>();
+    public static String computeTopSellingBooks(List<Book> books,List<Sale> sales, int n) {
+        HashMap<String, Float> topSellingBooks = new HashMap<>();
+        HashMap<String, Float> booksMap = new HashMap<>();
+
+        for(Book b: books) {
+            booksMap.put(b.getId(),b.getPrice());
+        }
 
         for (Sale sale : sales) {
             for (Sale.BookSale bookSale : sale.getBookSales()) {
-                topSellingBooks.merge(bookSale.getId(), bookSale.getQuantity(), (a, b) -> a + b);
+                 Float priceValue = topSellingBooks.get(bookSale.getId());
+                 if(priceValue==null)
+                     topSellingBooks.put(bookSale.getId(),(bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+                 else
+                     topSellingBooks.put(bookSale.getId(), priceValue + (bookSale.getQuantity()*booksMap.get(bookSale.getId())));
             }
         }
 
         Set<String> set = topSellingBooks.keySet();
         List<String> keys = new ArrayList<>(set);
-        keys.sort((o1, o2) -> Integer.compare(topSellingBooks.get(o2), topSellingBooks.get(o1)));
+        keys.sort((o1, o2) -> Float.compare(topSellingBooks.get(o2), topSellingBooks.get(o1)));
 
         // Safety check, if number of books asked for is more than the actual number of books, set the number of book to max
         if (n >= keys.size()) {
@@ -32,20 +41,31 @@ public class BookFactory {
         return printOutput("top_selling_books", output);
     }
 
-    // Converting list of sale to Hashmap and counting operation is performed. After counting, sort is performed and top n customers are picked
+    // Converting list of sale to Hashmap, create price map with books list and counting operation is performed(w.r.t price and quantity). After counting, sort is performed and top n customers are picked
 
-    public static String computeTopCustomers(List<Sale> sales, int n) {
-        HashMap<String, Integer> topCustomers = new HashMap<>();
+    public static String computeTopCustomers(List<Book> books, List<Sale> sales, int n) {
+        HashMap<String, Float> topCustomers = new HashMap<>();
+        HashMap<String, Float> booksMap = new HashMap<>();
 
-        for (Sale sale: sales) {
-            topCustomers.merge(sale.getEmail(), 1, (a, b) -> a + b);
+        for(Book b: books) {
+            booksMap.put(b.getId(),b.getPrice());
+        }
+
+        for (Sale sale : sales) {
+            for (Sale.BookSale bookSale : sale.getBookSales()) {
+                Float priceValue = topCustomers.get(sale.getEmail());
+                if(priceValue==null)
+                    topCustomers.put(sale.getEmail(),(bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+                else
+                    topCustomers.put(sale.getEmail(), priceValue + (bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+            }
         }
 
         Set<String> set = topCustomers.keySet();
         List<String> keys = new ArrayList<>(set);
-        keys.sort((o1, o2) -> Integer.compare(topCustomers.get(o2), topCustomers.get(o1)));
+        keys.sort((o1, o2) -> Float.compare(topCustomers.get(o2), topCustomers.get(o1)));
 
-        // Safety check, if number of customer asked for is more than the actual number of customer, set the number of customer to max
+        // Safety check, if number of books asked for is more than the actual number of books, set the number of book to max
         if (n >= keys.size()) {
             n = keys.size();
         }

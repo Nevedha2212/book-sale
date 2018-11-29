@@ -34,12 +34,12 @@ public class Driver {
 
 
         if (saleList != null && saleList.size() > 0 && externalArgs.getTopSellingBooks() > 0) {
-            String output = BookFactory.computeTopSellingBooks(saleList, externalArgs.getTopSellingBooks());
+            String output = BookFactory.computeTopSellingBooks(bookList, saleList, externalArgs.getTopSellingBooks());
             System.out.println(output);
         }
 
         if (saleList != null && saleList.size() > 0 && externalArgs.getTopCustomers() > 0) {
-            String output = BookFactory.computeTopCustomers(saleList, externalArgs.getTopCustomers());
+            String output = BookFactory.computeTopCustomers(bookList, saleList, externalArgs.getTopCustomers());
             System.out.println(output);
         }
 
