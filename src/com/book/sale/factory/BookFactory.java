@@ -20,10 +20,10 @@ public class BookFactory {
         for (Sale sale : sales) {
             for (Sale.BookSale bookSale : sale.getBookSales()) {
                  Float priceValue = topSellingBooks.get(bookSale.getId());
-                 if(priceValue==null)
-                     topSellingBooks.put(bookSale.getId(),(bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+                 if (priceValue == null)
+                     topSellingBooks.put(bookSale.getId(), (bookSale.getQuantity() * booksMap.get(bookSale.getId())));
                  else
-                     topSellingBooks.put(bookSale.getId(), priceValue + (bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+                     topSellingBooks.put(bookSale.getId(), priceValue + (bookSale.getQuantity() * booksMap.get(bookSale.getId())));
             }
         }
 
@@ -54,10 +54,10 @@ public class BookFactory {
         for (Sale sale : sales) {
             for (Sale.BookSale bookSale : sale.getBookSales()) {
                 Float priceValue = topCustomers.get(sale.getEmail());
-                if(priceValue==null)
-                    topCustomers.put(sale.getEmail(),(bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+                if (priceValue == null)
+                    topCustomers.put(sale.getEmail(),(bookSale.getQuantity() * booksMap.get(bookSale.getId())));
                 else
-                    topCustomers.put(sale.getEmail(), priceValue + (bookSale.getQuantity()*booksMap.get(bookSale.getId())));
+                    topCustomers.put(sale.getEmail(), priceValue + (bookSale.getQuantity() * booksMap.get(bookSale.getId())));
             }
         }
 
