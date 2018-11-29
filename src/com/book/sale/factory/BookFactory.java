@@ -7,7 +7,8 @@ import java.util.*;
 
 public class BookFactory {
 
-    // Converting list of sale to Hashmap and performing the operations
+    // Converting list of sale to Hashmap and counting operation is performed. After counting, sort is performed and top n selling books are picked
+
     public static String computeTopSellingBooks(List<Sale> sales, int n) {
         HashMap<String, Integer> topSellingBooks = new HashMap<>();
 
@@ -31,7 +32,8 @@ public class BookFactory {
         return printOutput("top_selling_books", output);
     }
 
-    // Converting list of sale to Hashmap and performing the operations
+    // Converting list of sale to Hashmap and counting operation is performed. After counting, sort is performed and top n customers are picked
+
     public static String computeTopCustomers(List<Sale> sales, int n) {
         HashMap<String, Integer> topCustomers = new HashMap<>();
 
@@ -53,7 +55,7 @@ public class BookFactory {
         return printOutput("top_customers", output);
     }
 
-    // Converting list of books to Hashmap and performing the operations, and computing sale value on each date
+    // Converting list of books to Hashmap and for given date, calculating total amount from sales list
 
     public static String salesOnDate(List<Book> books, List<Sale> sales, String date) {
         HashMap<String, Float> booksMap = new HashMap<>();
