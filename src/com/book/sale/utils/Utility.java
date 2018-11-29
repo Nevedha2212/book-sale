@@ -17,7 +17,7 @@ public class Utility {
         // Just for debug purpose
         String[] argsTemp = { "--books=/Users/nevedha/Projects/BookSale/asset/books.list",
                 "--sales=/Users/nevedha/Projects/BookSale/asset/sales.list",
-                "--top_selling_books=3", "--top_customers=2", "--sales_on_date=2018-09-02" };
+                "--top_selling_books=3", "--top_customers=2", "--sales_on_date=2018-08-01" };
 
         String BOOKS_ARG = "--books=";
         String SALES_ARG = "--sales=";
@@ -71,7 +71,7 @@ public class Utility {
             book.setId(parts[0]);
             book.setTitle(parts[1]);
             book.setAuthor(parts[2]);
-            book.setPrice(parts[3]);
+            book.setPrice(Float.parseFloat(parts[3]));
             bookList.add(book);
         }
 

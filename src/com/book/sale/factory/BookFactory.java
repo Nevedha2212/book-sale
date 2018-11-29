@@ -1,11 +1,13 @@
 package com.book.sale.factory;
 
+import com.book.sale.model.Book;
 import com.book.sale.model.Sale;
 
 import java.util.*;
 
 public class BookFactory {
 
+    // Converting list of sale to Hashmap and performing the operations
     public static String computeTopSellingBooks(List<Sale> sales, int n) {
         HashMap<String, Integer> topSellingBooks = new HashMap<>();
 
@@ -29,6 +31,7 @@ public class BookFactory {
         return printOutput("top_selling_books", output);
     }
 
+    // Converting list of sale to Hashmap and performing the operations
     public static String computeTopCustomers(List<Sale> sales, int n) {
         HashMap<String, Integer> topCustomers = new HashMap<>();
 
@@ -50,14 +53,22 @@ public class BookFactory {
         return printOutput("top_customers", output);
     }
 
-    public static String salesOnDate(List<Sale> sales, String date) {
-        HashMap<String, Integer> salesOnDate = new HashMap<>();
+    // Converting list of books to Hashmap and performing the operations, and computing sale value on each date
 
+    public static String salesOnDate(List<Book> books, List<Sale> sales, String date) {
+        HashMap<String, Float> booksMap = new HashMap<>();
+        float totalAmount = 0;
+        for(Book b: books) {
+            booksMap.put(b.getId(),b.getPrice());
+        }
         for (Sale sale: sales) {
-            salesOnDate.merge(sale.getDate(), 1, (a, b) -> a + b);
+            if(sale.getDate().equalsIgnoreCase(date)) {
+                for (Sale.BookSale bookSale : sale.getBookSales())
+                    totalAmount = totalAmount + booksMap.get(bookSale.getId()) * bookSale.getQuantity();
+            }
         }
 
-        return "sales_on_date" + "\t" + date + "\t" + salesOnDate.get(date) + "\n";
+        return "sales_on_date" + "\t" + date + "\t" + totalAmount + "\n";
     }
 
     // Printing the output as per the requirement

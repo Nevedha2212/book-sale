@@ -44,7 +44,7 @@ public class Driver {
         }
 
         if (saleList != null && bookList != null && saleList.size() > 0 && bookList.size() > 0 && externalArgs.getSaleOnDate() != null) {
-            String output = BookFactory.salesOnDate(saleList, externalArgs.getSaleOnDate());
+            String output = BookFactory.salesOnDate(bookList, saleList, externalArgs.getSaleOnDate());
             System.out.println(output);
         }
 
