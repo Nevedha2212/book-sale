@@ -1,0 +1,9 @@
+2018-08-01,foo@bar.com,CASH,2,123A;3,1S45;1
+2018-08-02,john@doe.com,CARD,4,1S45;1,1S45;1,1S75;10,1S95;1
+2018-08-02,john@doe.com,CARD,1,123A;2
+2018-09-02,hi@doe.com,CARD,1,123A;2
+2018-09-02,hi@doe.com,CARD,1,123A;2
+2018-12-02,joh4n@doe.com,CARD,1,123A;2
+2018-12-02,holo@doe.com,CARD,1,123A;2
+2018-12-02,holo@doe.com,CARD,1,123A;2
+2018-08-02,johnny@doe.com,CARD,1,123A;2
