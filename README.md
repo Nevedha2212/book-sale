@@ -30,9 +30,9 @@ $ java com/book/sale/Driver --books=/Users/nevedha/Projects/BookSale/asset/books
 ```
 Output 1
 ```
-top_selling_books       123A    1S45    1S75    1S95
+top_selling_books       123A    1S75    1S45    1S95
 
-top_customers   joh4n@doe.com   john@doe.com    hi@doe.com      johnny@doe.com  foo@bar.com
+top_customers   john@doe.com    foo@bar.com     holo@doe.com    hi@doe.com      johnny@doe.com  joh4n@doe.com
 
 sales_on_date   2018-09-02      92.88
 ```
@@ -43,9 +43,9 @@ $ java com/book/sale/Driver --books=/Users/nevedha/Projects/BookSale/asset/books
 ```
 Output 2
 ```
-top_selling_books       123A    1S45    1S75
+top_selling_books       123A    1S75    1S45
 
-top_customers   joh4n@doe.com   john@doe.com
+top_customers   john@doe.com    foo@bar.com
 
 sales_on_date   2018-09-02      92.88
 ```
@@ -56,9 +56,9 @@ $ java com/book/sale/Driver --books=/Users/nevedha/Projects/BookSale/asset/books
 ```
 Output 3
 ```
-top_selling_books       123A    1S45    1S75    1S95
+top_selling_books       123A    1S75    1S45    1S95
 
-top_customers   joh4n@doe.com   john@doe.com    hi@doe.com      johnny@doe.com  foo@bar.com
+top_customers   john@doe.com    foo@bar.com     holo@doe.com    hi@doe.com      johnny@doe.com  joh4n@doe.com
 ```
 
 Input 4
@@ -67,7 +67,7 @@ $ java com/book/sale/Driver --books=/Users/nevedha/Projects/BookSale/asset/books
 ```
 Output 4
 ```
-top_selling_books       123A    1S45    1S75    1S95
+top_selling_books       123A    1S75    1S45    1S95
 
 sales_on_date   2018-09-02      92.88
 ```
